@@ -1,20 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
+import {
+  Calendar,
+  ChartColumnIncreasing,
+  CircleUserRound,
+  LayoutDashboard,
+  LogOut,
+  NotebookPen,
+  Settings,
+  ShoppingCart,
+  UserRoundPlusIcon,
+} from "lucide-react";
 
 // Assume these icons are imported from an icon library
-import {
-  BoxCubeIcon,
-  CalenderIcon,
-  ChevronDownIcon,
-  GridIcon,
-  HorizontaLDots,
-  ListIcon,
-  PageIcon,
-  PieChartIcon,
-  PlugInIcon,
-  TableIcon,
-  UserCircleIcon,
-} from "../icons";
+import { ChevronDownIcon, HorizontaLDots, UserCircleIcon } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 
 type NavItem = {
@@ -26,69 +25,51 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <GridIcon />,
+    icon: <LayoutDashboard />,
     name: "Dashboard",
-     path: "/",
+    path: "/",
   },
   {
-    icon: <CalenderIcon />,
+    icon: <ShoppingCart />,
+    name: "Inventory",
+    path: "/inventory",
+  },
+  {
+    icon: <Calendar />,
     name: "Calendar",
     path: "/calendar",
   },
   {
+    icon: <ChartColumnIncreasing />,
+    name: "Sales",
+    path: "/sales",
+  },
+  {
     icon: <UserCircleIcon />,
-    name: "User Profile",
+    name: "Purchase",
+    path: "/purchase",
+  },
+  {
+    icon: <UserRoundPlusIcon />,
+    name: "Employee",
+    path: "/employee",
+  },
+  {
+    icon: <NotebookPen />,
+    name: "Reports",
+    path: "/reports",
+  },
+  {
+    icon: <CircleUserRound />,
+    name: "Profile",
     path: "/profile",
   },
   {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
-  },
-  {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
-    name: "Pages",
-    icon: <PageIcon />,
-    subItems: [
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
-    ],
-  },
-  {
-    icon: <PieChartIcon />,
-    name: "Charts",
-    subItems: [
-      { name: "Line Chart", path: "/line-chart", pro: false },
-      { name: "Bar Chart", path: "/bar-chart", pro: false },
-    ],
-  },
-  {
-    icon: <BoxCubeIcon />,
-    name: "UI Elements",
-    subItems: [
-      { name: "Alerts", path: "/alerts", pro: false },
-      { name: "Avatar", path: "/avatars", pro: false },
-      { name: "Badge", path: "/badge", pro: false },
-      { name: "Buttons", path: "/buttons", pro: false },
-      { name: "Images", path: "/images", pro: false },
-      { name: "Videos", path: "/videos", pro: false },
-    ],
-  },
-  {
-    icon: <PlugInIcon />,
-    name: "Authentication",
-    subItems: [
-      { name: "Sign In", path: "/signin", pro: false },
-      { name: "Sign Up", path: "/signup", pro: false },
-    ],
+    icon: <Settings />,
+    name: "Settings",
+    path: "/settings",
   },
 ];
-
-
 
 const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
@@ -350,6 +331,22 @@ const AppSidebar: React.FC = () => {
             </div>
           </div>
         </nav>
+        <div className="mt-54">
+          {isExpanded || isHovered || isMobileOpen ? (
+            <Link
+              to="/signin"
+              className="flex items-center p-3 mt-4 gap-3 font-medium dark:text-gray-400 border-t dark:border-t-gray-300 text-gray-600 hover:text-gray-700 dark:hover:text-gray-50"
+            >
+              <LogOut />
+              Sign out
+            </Link>
+          ) : <Link
+          to="/signin"
+          className="flex items-center p-3 gap-3 font-medium dark:text-gray-400 border-t dark:border-t-gray-300 text-gray-600 hover:text-gray-700 dark:hover:text-gray-50"
+        >
+          <LogOut />
+        </Link>}
+        </div>
       </div>
     </aside>
   );
