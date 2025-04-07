@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import SignIn from "./pages/AuthPages/SignIn";
-import SignUp from "./pages/AuthPages/SignUp";
 import NotFound from "./pages/OtherPage/NotFound";
 import UserProfiles from "./pages/UserProfiles";
 import Videos from "./pages/UiElements/Videos";
@@ -14,12 +13,13 @@ import BarChart from "./pages/Charts/BarChart";
 import Calendar from "./pages/Calendar";
 import BasicTables from "./pages/Tables/BasicTables";
 import FormElements from "./pages/Forms/FormElements";
-import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import Inventory from "./pages/Inventory";
 import Sales from "./pages/Sales";
+import Purchase from "./pages/pages/Purchase";
+import Settings from "./pages/pages/Settings";
 
 export default function App() {
   return (
@@ -32,7 +32,7 @@ export default function App() {
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/calendar" element={<Calendar />} />
-            <Route path="/blank" element={<Blank />} />
+            <Route path="/settings" element={<Settings/>} />
             <Route path="/form-elements" element={<FormElements />} />
             <Route path="/basic-tables" element={<BasicTables />} />
             <Route path="/alerts" element={<Alerts />} />
@@ -45,12 +45,12 @@ export default function App() {
             <Route path="/bar-chart" element={<BarChart />} />
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/sales" element={<Sales />} />
+            <Route path="/purchase" element={<Purchase />} />
           </Route>
 
           {/* Auth Layout */}
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-
+          
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
