@@ -16,6 +16,7 @@ export default function AuthLayout({
             {/* <!-- ===== Common Grid Shape Start ===== --> */}
             <GridShape />
             <div className="flex flex-col items-center max-w-xs">
+              <p className="text-black dark:text-white text-xl font-bold">Inventory Managment System</p>
               <div className="mt-6 border border-xl p-1 rounded-xl bg-brand-200">
                 <img
                 className="rounded-xl w-[300vh]"
