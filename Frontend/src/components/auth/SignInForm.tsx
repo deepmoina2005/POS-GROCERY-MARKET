@@ -4,17 +4,9 @@ import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
-import Select from "../form/Select";
 
 export default function SignInForm() {
-  const options = [
-    { value: "owner", label: "Owner" },
-    { value: "employee", label: "Employee" },
-  ];
 
-  const handleSelectChange = (value: string) => {
-    console.log("Selected value:", value);
-  };
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   return (
@@ -60,17 +52,6 @@ export default function SignInForm() {
                       )}
                     </span>
                   </div>
-                </div>
-                <div>
-                <Label>
-                    Password <span className="text-error-500">*</span>{" "}
-                  </Label>
-                  <Select
-                    options={options}
-                    placeholder="Select Role"
-                    onChange={handleSelectChange}
-                    className="dark:bg-dark-900"
-                  />
                 </div>
 
                 <div className="flex items-center justify-between">

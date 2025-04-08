@@ -16,10 +16,12 @@ import FormElements from "./pages/Forms/FormElements";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
-import Inventory from "./pages/Inventory";
 import Sales from "./pages/Sales";
-import Purchase from "./pages/pages/Purchase";
 import Settings from "./pages/pages/Settings";
+import AddProducts from "./pages/Inventory/AddProduct";
+import AllProducts from "./pages/Inventory/AllProducts";
+import AddPurchase from "./pages/pages/Purchase/AddPurchase";
+import PurchaseHistory from "./pages/pages/Purchase/PurchaseHistory";
 
 export default function App() {
   return (
@@ -43,9 +45,11 @@ export default function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/line-chart" element={<LineChart />} />
             <Route path="/bar-chart" element={<BarChart />} />
-            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/add-product" element={<AddProducts/>} />
+            <Route path="/all-products" element={<AllProducts/>} />
             <Route path="/sales" element={<Sales />} />
-            <Route path="/purchase" element={<Purchase />} />
+            <Route path="/add-purchase" element={<AddPurchase/>} />
+            <Route path="/all-purchase" element={<PurchaseHistory/>} />
           </Route>
 
           {/* Auth Layout */}
