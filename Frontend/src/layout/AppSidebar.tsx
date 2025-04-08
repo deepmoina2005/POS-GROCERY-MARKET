@@ -28,8 +28,14 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { icon: <LayoutDashboard />, name: "Dashboard", path: "/" },
-  { icon: <Calendar />, name: "Calendar", path: "/calendar" },
-  { icon: <ChartColumnIncreasing />, name: "Sales", path: "/sales" },
+  {
+    icon: <ChartColumnIncreasing />,
+    name: "Sales",
+    subItems: [
+      { name: "New Sales", path: "/new-sales" },
+      { name: "Sales History", path: "/sales-history" },
+    ],
+  },
   {
     icon: <ShoppingCart />,
     name: "Inventory",
@@ -38,16 +44,41 @@ const navItems: NavItem[] = [
       { name: "All Product", path: "/all-products" },
     ],
   },
-  { icon: <ShoppingBag />, name: "Purchase", 
+  {
+    icon: <ShoppingBag />,
+    name: "Purchase",
     subItems: [
       { name: "Purchase Product", path: "/add-purchase" },
       { name: "All Purchase", path: "/all-purchase" },
     ],
-   },
+  },
+  {
+    icon: <StoreIcon />,
+    name: "Supliers",
+    subItems: [
+      { name: "Add Supliers", path: "/add-supliers" },
+      { name: "All Supliers", path: "/all-supliers" },
+    ],
+  },
+  {
+    icon: <Boxes />,
+    name: "Categories",
+    subItems: [
+      { name: "Add Category", path: "/add-category" },
+      { name: "All Categories", path: "/all-categories" },
+    ],
+  },
+  {
+    icon: <Boxes />,
+    name: "Units",
+    subItems: [
+      { name: "Add Unit", path: "/add-unit" },
+      { name: "All Units", path: "/all-units" },
+    ],
+  },
+  { icon: <Calendar />, name: "Calendar", path: "/calendar" },
   { icon: <NotebookPen />, name: "Reports", path: "/reports" },
-  { icon: <StoreIcon />, name: "Supliers", path: "/supliers" },
-  { icon: <Boxes />, name: "Categories", path: "/categories" },
-  { icon: <ScrollText />, name: "Invoice", path: "/profile" },
+  { icon: <ScrollText />, name: "Invoice", path: "/invoice" },
   { icon: <Settings />, name: "Settings", path: "/settings" },
   { icon: <CircleUserRound />, name: "Profile", path: "/profile" },
   { icon: <LogOut />, name: "Logout", path: "/signin" },

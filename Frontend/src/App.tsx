@@ -16,12 +16,21 @@ import FormElements from "./pages/Forms/FormElements";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
-import Sales from "./pages/Sales";
 import Settings from "./pages/pages/Settings";
 import AddProducts from "./pages/Inventory/AddProduct";
 import AllProducts from "./pages/Inventory/AllProducts";
 import AddPurchase from "./pages/pages/Purchase/AddPurchase";
 import PurchaseHistory from "./pages/pages/Purchase/PurchaseHistory";
+import NewSales from "./pages/Sales/NewSales";
+import SalesHistory from "./pages/Sales/SalesHistory";
+import AllSupliers from "./pages/Supliers/AllSupliers";
+import AddSupliers from "./pages/Supliers/AddSupliers";
+import AddCategory from "./pages/Categories/AddCategory";
+import AllCategories from "./pages/Categories/AllCategories";
+import Reports from "./pages/Reports";
+import AddUnits from "./pages/pages/Units/AddUnits";
+import AllUnits from "./pages/pages/Units/AllUnits";
+import Invoice from "./pages/pages/Invoice";
 
 export default function App() {
   return (
@@ -47,9 +56,18 @@ export default function App() {
             <Route path="/bar-chart" element={<BarChart />} />
             <Route path="/add-product" element={<AddProducts/>} />
             <Route path="/all-products" element={<AllProducts/>} />
-            <Route path="/sales" element={<Sales />} />
+            <Route path="/new-sales" element={<NewSales />} />
+            <Route path="/sales-history" element={<SalesHistory />} />
             <Route path="/add-purchase" element={<AddPurchase/>} />
             <Route path="/all-purchase" element={<PurchaseHistory/>} />
+            <Route path="/all-supliers" element={<AllSupliers/>} />
+            <Route path="/add-supliers" element={<AddSupliers/>} />
+            <Route path="/all-categories" element={<AllCategories/>} />
+            <Route path="/add-category" element={<AddCategory/>} />
+            <Route path="/add-unit" element={<AddUnits/>} />
+            <Route path="/all-units" element={<AllUnits/>} />
+            <Route path="/reports" element={<Reports/>} />
+            <Route path="/invoice" element={<Invoice/>}/>
           </Route>
 
           {/* Auth Layout */}
