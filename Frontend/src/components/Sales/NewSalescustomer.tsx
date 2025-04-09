@@ -133,7 +133,7 @@ const NewSalescustomer = () => {
           </div>
 
           <div className="flex pt-6 justify-end">
-            <Button className="bg-indigo-600 text-white hover:bg-indigo-500 py-2 px-6 rounded-md shadow-lg transition-all duration-200">
+            <Button>
               Confirm To Sell
             </Button>
           </div>
