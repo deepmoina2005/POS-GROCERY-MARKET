@@ -6,12 +6,16 @@ import Input from "../form/input/InputField";
 import Select from "../form/Select";
 import toast from "react-hot-toast";
 import Button from "../ui/button/Button";
+import axios from "axios"; // ✅ Added this
 
 const AddProduct = () => {
   const [productImage, setProductImage] = useState<File[]>([]);
   const [productName, setProductName] = useState("");
   const [productCode, setProductCode] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productDiscountPrice, setProductDiscountPrice] = useState("");
   const [brand, setBrand] = useState("");
+  const [productColor, setProductColor] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState<string[]>(["fresh"]);
   const [productType, setProductType] = useState("");
@@ -74,6 +78,9 @@ const AddProduct = () => {
         unit,
         quantity,
         totalPrice,
+        productPrice,
+        productDiscountPrice,
+        productColor,
       };
 
       const formData = new FormData();
@@ -84,6 +91,7 @@ const AddProduct = () => {
 
       if (data.success) {
         toast.success(data.message);
+        // Reset form
         setProductName("");
         setProductCode("");
         setBrand("");
@@ -96,6 +104,9 @@ const AddProduct = () => {
         setUnit("");
         setQuantity(1);
         setProductImage([]);
+        setProductPrice("");
+        setProductDiscountPrice("");
+        setProductColor("");
       } else {
         toast.error(data.message);
       }
@@ -118,12 +129,52 @@ const AddProduct = () => {
         </div>
 
         <div>
+          <Label>Barcode</Label>
+          <Input
+            placeholder="Enter or scan barcode"
+            type="text"
+            value={barcode}
+            onChange={(e) => setBarcode(e.target.value)}
+          />
+        </div>
+
+        <div>
           <Label>Product Code</Label>
           <Input
             placeholder="e.g. APPL-RED-001"
             type="text"
             value={productCode}
             onChange={(e) => setProductCode(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <Label>Product Price</Label>
+          <Input
+            placeholder="e.g. 100"
+            type="number"
+            value={productPrice}
+            onChange={(e) => setProductPrice(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <Label>Product Color (optional)</Label>
+          <Input
+            placeholder="e.g. Red"
+            type="text"
+            value={productColor}
+            onChange={(e) => setProductColor(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <Label>Product Discount Price</Label>
+          <Input
+            placeholder="e.g. 80"
+            type="number"
+            value={productDiscountPrice}
+            onChange={(e) => setProductDiscountPrice(e.target.value)}
           />
         </div>
 
@@ -142,7 +193,7 @@ const AddProduct = () => {
           <Select
             options={categories}
             placeholder="Select Category"
-            onChange={(val) => setCategory(val)}
+            onChange={(val) => setCategory(val?.value)}
           />
         </div>
 
@@ -151,17 +202,7 @@ const AddProduct = () => {
           <Select
             options={productTypes}
             placeholder="Select Type"
-            onChange={(val) => setProductType(val)}
-          />
-        </div>
-
-        <div>
-          <Label>Barcode</Label>
-          <Input
-            placeholder="Enter or scan barcode"
-            type="text"
-            value={barcode}
-            onChange={(e) => setBarcode(e.target.value)}
+            onChange={(val) => setProductType(val?.value)}
           />
         </div>
 
@@ -170,7 +211,7 @@ const AddProduct = () => {
           <Select
             options={unitOptions}
             placeholder="Select Unit"
-            onChange={(val) => setUnit(val)}
+            onChange={(val) => setUnit(val?.value)}
           />
         </div>
 
@@ -189,9 +230,8 @@ const AddProduct = () => {
               `}
             >
               <input {...getInputProps()} />
-              {/* Icon Container */}
               <div className="mb-[22px] flex justify-center">
-                <div className="flex h-[68px] w-[68px]  items-center justify-center rounded-full bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
+                <div className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
                   <svg
                     className="fill-current"
                     width="29"

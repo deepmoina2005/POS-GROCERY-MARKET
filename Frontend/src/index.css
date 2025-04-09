@@ -6,6 +6,16 @@ layer(base);
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+/* Tailwind custom scrollbar hidden but scrollable */
+.custom-scroll-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.custom-scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 
 @theme {
   --font-*: initial;

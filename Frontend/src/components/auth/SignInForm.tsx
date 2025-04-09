@@ -6,7 +6,7 @@ import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);

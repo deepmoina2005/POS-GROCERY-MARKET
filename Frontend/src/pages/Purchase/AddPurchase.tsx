@@ -1,9 +1,9 @@
 import { ArrowLeft } from "lucide-react";
-import Button from "../../../components/ui/button/Button";
-import PageBreadcrumb from "../../../components/common/PageBreadCrumb";
-import AddPurchase from "../../../components/Purchase/AddPurchase";
+import Button from "../../components/ui/button/Button";
+import PageBreadcrumb from "../../components/common/PageBreadCrumb";
+import AddPurchaseProduct from "../../components/Purchase/AddPurchase";
 
-const AddProducts = () => {
+const AddPurchase = () => {
   const handleBackClick = () => {
     window.history.back(); // Go back to the previous page in browser history
   };
@@ -21,10 +21,10 @@ const AddProducts = () => {
         <PageBreadcrumb pageTitle="Purchase History" />
       </div>
       <div className="space-y-6 mt-4">
-        <AddPurchase/>
+        <AddPurchaseProduct/>
       </div>
     </div>
   );
 };
 
-export default AddProducts;
+export default AddPurchase;

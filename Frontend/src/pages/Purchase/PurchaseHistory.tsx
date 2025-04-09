@@ -1,7 +1,7 @@
-import Button from '../../../components/ui/button/Button'
+import Button from '../../components/ui/button/Button'
 import { ArrowLeft } from 'lucide-react'
-import PageBreadcrumb from '../../../components/common/PageBreadCrumb'
-import PurchaseHistoryTable from '../../../components/Purchase/PurchaseHistory';
+import PageBreadcrumb from '../../components/common/PageBreadCrumb'
+import PurchaseHistoryTable from '../../components/Purchase/PurchaseHistory';
 
 const PurchaseHistory = () => {
     const handleBackClick = () => {

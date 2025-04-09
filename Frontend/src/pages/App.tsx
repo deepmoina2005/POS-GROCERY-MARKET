@@ -28,9 +28,6 @@ import Reports from "./pages/Reports";
 import PurchaseHistory from "./pages/Purchase/PurchaseHistory";
 import AddPurchase from "./pages/Purchase/AddPurchase";
 import Settings from "./pages/Settings";
-import AddUnits from "./pages/Units/AddUnits";
-import AllUnits from "./pages/Units/AllUnits";
-import Invoice from "./pages/Invoice";
 
 export default function App() {
   return (

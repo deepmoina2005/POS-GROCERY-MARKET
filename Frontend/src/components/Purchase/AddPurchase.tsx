@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import TextArea from "../form/input/TextArea";
 import DatePicker from "../../components/form/date-picker"; // Import DatePicker component
 
-const AddPurchase = () => {
+const AddPurchaseProduct = () => {
   const [supplier, setSupplier] = useState<string>(""); // Updated type to string
   const [warehouse, setWarehouse] = useState<string>("");
   const [taxRate, setTaxRate] = useState<number>(0);
@@ -251,4 +251,4 @@ const AddPurchase = () => {
   );
 };
 
-export default AddPurchase;
+export default AddPurchaseProduct;
