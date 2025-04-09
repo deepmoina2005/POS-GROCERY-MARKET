@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import Button from "../ui/button/Button";
 import { Plus } from "lucide-react";
 
-
 type ProductType = {
   name: string;
   category: string;
   price: number;
-  offerPrice: number;
   image: string;
 };
 
@@ -40,16 +38,9 @@ const ProductCart = ({ product }: { product: ProductType }) => {
 
       {/* Price & Add to Cart */}
       <div className="flex items-end justify-between mt-4">
-        <div>
-        <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
-          ${product.offerPrice}
-          </p>
-          <p className="text-gray-400 dark:text-gray-500 text-sm line-through ml-1">
-            ${product.price}
-          </p>
-        </div>
-        
-
+        <p className="text-indigo-600 dark:text-indigo-400 mb-2 font-semibold text-lg">
+          ${product.price}
+        </p>
         <div className="text-indigo-600 dark:text-indigo-400">
           {count === 0 ? (
             <Button onClick={() => setCount(1)}>

@@ -149,7 +149,7 @@ const AllSalesProduct = () => {
             options={categoryOptions}
             placeholder="Select Category"
             onChange={handleSelectChange}
-            className="dark:bg-dark-900"
+            className="dark:bg-dark-100"
           />
         </div>
       </div>
