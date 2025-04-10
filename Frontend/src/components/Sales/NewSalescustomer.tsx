@@ -47,8 +47,7 @@ const NewSalescustomer = () => {
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900 p-4 transition-all duration-200 min-w-[70%] max-w-[100%] w-full">
-      <div className="flex flex-wrap gap-6 items-stretch w-full">
+      <div className="flex flex-wrap gap-6 mt-5 items-stretch w-full">
         {/* Shopping Cart */}
         <div className="flex-1 min-w-[320px] bg-white dark:bg-gray-800 p-6 border border-gray-300 dark:border-gray-700 rounded-md text-sm font-sans flex flex-col">
           <h1 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-white">
@@ -75,7 +74,7 @@ const NewSalescustomer = () => {
                   </p>
                 </div>
                 <p className="text-center text-indigo-600 dark:text-indigo-400 font-semibold">
-                  ${product.offerPrice * product.quantity}
+                ₹ {product.offerPrice * product.quantity}
                 </p>
                 <button className="mx-auto p-2 rounded transition transform hover:scale-105">
                   <svg
@@ -103,18 +102,18 @@ const NewSalescustomer = () => {
             <div className="text-gray-600 dark:text-gray-300 mt-4 space-y-2">
               <p className="flex justify-between">
                 <span>Price</span>
-                <span>$20</span>
+                <span>₹ 20</span>
               </p>
               <p className="flex justify-between">
                 <span>Tax (2%)</span>
-                <span>$20</span>
+                <span>₹ 20</span>
               </p>
               {/* Totals */}
               <div className="flex justify-between pt-6 font-bold text-gray-800 dark:text-white text-sm border-t border-dashed border-gray-400 dark:border-gray-600 mt-6">
                 <span>Total Items: {products.length}</span>
                 <span>
-                  $
-                  {products.reduce(
+                ₹ 
+                  {" "}{products.reduce(
                     (total, product) =>
                       total + product.offerPrice * product.quantity,
                     0
@@ -122,7 +121,7 @@ const NewSalescustomer = () => {
                 </span>
               </div>
             </div>
-            <div className="mt-6">
+            <div className="mt-10">
               <Select
                 options={options}
                 placeholder="Select Payment Method"
@@ -139,7 +138,6 @@ const NewSalescustomer = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

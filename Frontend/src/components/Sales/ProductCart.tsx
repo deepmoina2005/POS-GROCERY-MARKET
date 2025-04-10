@@ -39,7 +39,7 @@ const ProductCart = ({ product }: { product: ProductType }) => {
       {/* Price & Add to Cart */}
       <div className="flex items-end justify-between mt-4">
         <p className="text-indigo-600 dark:text-indigo-400 mb-2 font-semibold text-lg">
-          ${product.price}
+        ₹ {product.price}
         </p>
         <div className="text-indigo-600 dark:text-indigo-400">
           {count === 0 ? (

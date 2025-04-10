@@ -10,7 +10,6 @@ import img8 from "../../assets/seven_up_image_1.png";
 import img9 from "../../assets/sprite_image_1.png";
 import img10 from "../../assets/top_ramen_image.png";
 import img11 from "../../assets/yippee_image.png";
-import Input from "../form/input/InputField";
 import Select from "../form/Select";
 
 const products = [
