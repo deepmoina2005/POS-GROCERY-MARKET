@@ -6,6 +6,7 @@ import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { AxiosError } from "axios";
 import { useNavigate } from "react-router";
 
 export default function SignInForm() {
@@ -54,10 +55,10 @@ export default function SignInForm() {
       }
     } catch (error) {
       setIsLoading(false);
-      
+      const err = error as AxiosError<{ message?: string }>;
       // Check if error.response exists for a better error handling
-      if (error.response) {
-        toast.error(error.response?.data?.message || "Login failed. Please try again.");
+      if (err.response) {
+        toast.error(err.response?.data?.message || "Login failed. Please try again.");
       } else {
         toast.error("Network error. Please try again later.");
       }
@@ -89,7 +90,6 @@ export default function SignInForm() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
                 </div>
                 <div>
@@ -102,7 +102,6 @@ export default function SignInForm() {
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      required
                     />
                     <span
                       onClick={() => setShowPassword(!showPassword)}
@@ -128,7 +127,6 @@ export default function SignInForm() {
 
                 <div>
                   <Button
-                    type="submit"
                     className="w-full"
                     size="sm"
                     disabled={isLoading} // Disable button while submitting

@@ -386,7 +386,6 @@ export default function HistorySales() {
                             ? "warning"
                             : "error"
                         }
-                        className="px-2 py-1"
                       >
                         {product.status}
                       </Badge>
@@ -394,14 +393,6 @@ export default function HistorySales() {
                     <TableCell className="px-4 py-3">
                       <Badge
                         size="sm"
-                        color={
-                          product.paymentMethod === "Cash"
-                            ? "success"
-                            : product.paymentMethod === "Online"
-                            ? "info"
-                            : "secondary"
-                        }
-                        className="px-2 py-1"
                       >
                         {product.paymentMethod}
                       </Badge>
@@ -425,7 +416,7 @@ export default function HistorySales() {
 
           <div className="flex items-center justify-between px-4 py-3 text-gray-500">
             <Button
-              variant="ghost"
+              variant="primary"
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               className="flex items-center gap-2"
@@ -469,7 +460,7 @@ export default function HistorySales() {
             </div>
 
             <Button
-              variant="ghost"
+              variant="outline"
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               className="flex items-center gap-2"

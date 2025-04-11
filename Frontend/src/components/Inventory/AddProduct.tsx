@@ -193,7 +193,7 @@ const AddProduct = () => {
           <Select
             options={categories}
             placeholder="Select Category"
-            onChange={(val) => setCategory(val?.value)}
+            onChange={(val:any) => setCategory(val?.value)}
           />
         </div>
 
@@ -202,7 +202,7 @@ const AddProduct = () => {
           <Select
             options={productTypes}
             placeholder="Select Type"
-            onChange={(val) => setProductType(val?.value)}
+            onChange={(val:any) => setProductType(val?.value)}
           />
         </div>
 
@@ -211,7 +211,7 @@ const AddProduct = () => {
           <Select
             options={unitOptions}
             placeholder="Select Unit"
-            onChange={(val) => setUnit(val?.value)}
+            onChange={(val:any) => setUnit(val?.value)}
           />
         </div>
 

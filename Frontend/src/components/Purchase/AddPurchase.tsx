@@ -6,7 +6,8 @@ import Select from "../form/Select";
 import Button from "../ui/button/Button";
 import toast from "react-hot-toast";
 import TextArea from "../form/input/TextArea";
-import DatePicker from "../../components/form/date-picker"; // Import DatePicker component
+import DatePicker from "../../components/form/date-picker";// Import DatePicker component
+import axios from "axios";
 
 const AddPurchaseProduct = () => {
   const [supplier, setSupplier] = useState<string>(""); // Updated type to string
@@ -79,7 +80,7 @@ const AddPurchaseProduct = () => {
         setProductId("");
 
         // Navigate to the All Purchases page
-        history.push("/all-purchase"); // Redirect to the All Purchases page
+       // Redirect to the All Purchases page
       } else {
         toast.error(data.message);
       }
@@ -113,8 +114,6 @@ const AddPurchaseProduct = () => {
             }}
           />
         </div>
-
-        {/* Quantity Input */}
         <div>
           <Label>Quantity</Label>
           <Input
@@ -145,7 +144,6 @@ const AddPurchaseProduct = () => {
           <Label>Supplier</Label>
           <Select
             options={suppliers}
-            value={supplier}
             placeholder="Select Supplier"
             onChange={(val) => setSupplier(val)}
           />

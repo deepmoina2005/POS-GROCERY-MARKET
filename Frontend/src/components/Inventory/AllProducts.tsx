@@ -230,7 +230,6 @@ export default function AllProducts() {
                     <Badge
                       size="sm"
                       color={product.status === "Active" ? "success" : product.status === "Pending" ? "warning" : "error"}
-                      className="px-2 py-1"
                     >
                       {product.status}
                     </Badge>
@@ -255,7 +254,7 @@ export default function AllProducts() {
       {/* Pagination */}
       <div className="flex items-center justify-between px-4 py-3 text-gray-500">
         <Button
-          variant="ghost"
+          variant="primary"
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           className="flex items-center gap-2"
@@ -284,7 +283,7 @@ export default function AllProducts() {
         </div>
 
         <Button
-          variant="ghost"
+          variant="primary"
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           className="flex items-center gap-2"
