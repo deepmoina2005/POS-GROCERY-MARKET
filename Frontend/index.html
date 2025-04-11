@@ -2,11 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Electron App</title>
+
+    <style>
+      /* Hide scrollbar for WebKit-based browsers (Chrome, Safari) */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for Firefox */
+      html {
+        scrollbar-width: none;
+      }
+
+      body {
+        overflow: hidden; /* Prevent scroll on body */
+      }
+
+      #root {
+        overflow-y: auto; /* Allow scroll in root if needed */
+        height: 100%;
+      }
+    </style>
   </head>
-  <body class="dark:bg-gray-900">
-    <div id="root"></div>
+  <body class="dark:bg-gray-900 bg-white text-white">
+    <!-- Custom Title Bar for Electron -->
+    <div id="titlebar" class="h-10 flex items-center justify-between bg-gray-800 px-4 select-none drag">
+      <div class="text-sm font-semibold">My Electron App</div>
+      <div class="flex gap-2 no-drag">
+        <button onclick="window.electronAPI.minimize()" class="hover:bg-gray-700 px-2 rounded">—</button>
+        <button onclick="window.electronAPI.maximize()" class="hover:bg-gray-700 px-2 rounded">🗖</button>
+        <button onclick="window.electronAPI.close()" class="hover:bg-red-600 px-2 rounded">✕</button>
+      </div>
+    </div>
+
+    <div id="root" class="h-[calc(100vh-2.5rem)]"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

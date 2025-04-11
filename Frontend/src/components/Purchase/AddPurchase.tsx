@@ -6,7 +6,7 @@ import Select from "../form/Select";
 import Button from "../ui/button/Button";
 import toast from "react-hot-toast";
 import TextArea from "../form/input/TextArea";
-import DatePicker from "../../components/form/date-picker";// Import DatePicker component
+import DatePicker from "../form/date-picker";// Import DatePicker component
 import axios from "axios";
 
 const AddPurchaseProduct = () => {

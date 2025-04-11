@@ -1,11 +1,8 @@
-// electron/preload.js
-import { contextBridge, ipcRenderer } from "electron";
+// preload.js
+const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld("api", {
-  send: (channel, data) => {
-    ipcRenderer.send(channel, data);
-  },
-  receive: (channel, func) => {
-    ipcRenderer.on(channel, (event, ...args) => func(...args));
-  },
+contextBridge.exposeInMainWorld('electronAPI', {
+  minimize: () => ipcRenderer.send('window-minimize'),
+  maximize: () => ipcRenderer.send('window-maximize'),
+  close: () => ipcRenderer.send('window-close'),
 });
